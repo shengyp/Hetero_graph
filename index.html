@@ -1,0 +1,472 @@
+
+<!-- saved from url=(0031)http://im2recipe.csail.mit.edu/ -->
+<html class="gr__im2recipe_csail_mit_edu"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Recipe1M+: A Dataset for Learning Cross-Modal Embeddings for Cooking Recipes and Food Images - MIT</title>
+<meta name="google-site-verification" content="NksNPfO4SApMtvU2rGHxr4DPan2Uy6Pz-rP9cA0k1mg">
+<script async="" src="./hetero_graph/analytics.js.&#19979;&#36733;"></script><script async="" src="./hetero_graph/analytics.js.&#19979;&#36733;"></script><script src="./hetero_graph/jquery-2.2.4.min.js.&#19979;&#36733;"></script>
+<script type="text/javascript" src="./hetero_graph/latexit.js.&#19979;&#36733;"></script>
+<link href="./hetero_graph/css" rel="stylesheet">
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-17813713-5', 'auto');
+  ga('create', 'UA-17813713-3', 'mit.edu');
+  ga('send', 'pageview');
+
+</script>
+
+<style>
+@media screen and (max-device-width: 480px){
+  body{
+        -webkit-text-size-adjust: 100%;
+                }
+                        }
+body
+{
+    font-family :'Lato', sans-serif;
+    font-size : 16px;
+    background-color : #f2f2f2;
+}
+.content
+{
+    width : 980px;
+    padding : 25px 25px;
+    margin : 25px auto;
+    background-color : #fff;
+    border-radius: 20px;
+    border : #e3e1e4 1px solid;
+}
+.content-title {
+    color : #000;
+    border : none;
+    margin-top : 25px;
+    padding-bottom : 0;
+    margin-bottom : 0;
+    background-color : inherit;
+}
+
+.content-names {
+    padding : 10px;
+    padding-top : 0;
+    border : none;
+    box-shadow : none;
+    background-color : inherit;
+}
+
+.bibtex {
+    display: block;
+    font-family: monospace;
+    white-space: pre;
+    margin: 1em 0px 1em;
+    font-size : 14px;
+    color: black;
+    background-color: #ffffff;
+}
+
+
+a, a:visited
+{
+    color : #ff6699;
+    color : #cc0066;
+}
+
+#authors
+{
+    text-align : center;
+}
+
+#conference
+{
+    text-align : center;
+    font-style : italic;
+}
+
+#authors span
+{
+    margin : 0 10px;
+}
+
+.authorphoto img {
+  width: 95px;
+  border-radius: 95px;
+  margin-bottom: 5px;
+}
+
+.author {
+  display: inline-block;
+  width: 100px;
+  font-size : 13px;
+  text-align: center;
+  margin-right:10px;
+}
+
+h1
+{
+    text-align : center;
+    font-family : 'Lato', sans-serif;
+    font-size : 40px;
+}
+h2 {
+    font-family : 'Lato', sans-serif;
+    font-size : 30px;
+    padding : 0; margin : 10px;
+}
+h3 {
+    font-family : 'Lato', sans-serif;
+    font-size : 20px;
+    padding : 0; margin : 10px;
+    margin-top:10px;
+}
+
+p {
+    line-height : 130%;
+    margin : 10px;
+}
+pre {
+    line-height : 130%;
+    margin : 10px;
+    padding : 20px;
+    background-color : #2d2d2d;
+    color : white;
+    border-radius : 5px;
+}
+
+li {
+    margin : 10px 0;
+}
+
+.samples {
+    float : left;
+    width : 50%;
+    text-align : center;
+}
+.cond {
+    float : left;
+    margin : 0 40px;
+}
+.cond-container {
+    width : 700px;
+    margin : 0 auto;
+    text-align : center;
+}
+</style>
+<script type="text/javascript" async="" src="./hetero_graph/1eaefda9f709934a5d.js.&#19979;&#36733;"></script></head>
+
+<body data-gr-c-s-loaded="true">
+
+<div class="content content-title">
+<!--<h1>Learning Cross-modal Embeddings<br>for Cooking Recipes and Food Images</h1>-->
+<h1>Recipe1M+: A Dataset for Learning Cross-Modal Embeddings for Cooking Recipes and Food Images</h1>
+
+
+</div>
+
+<div class="content content-names" style="text-align : center;">
+
+  <div class="author">
+    <a href="https://imatge.upc.edu/web/people/amaia-salvador" target="_blank">
+      <div class="authorphoto"><img src="./hetero_graph/amaia.jpg"></div>
+      <div>Amaia Salvador</div>
+    </a>&#9840;
+  </div>
+
+  <div class="author">
+    <a href="https://www.linkedin.com/in/nhynes42/" target="_blank">
+      <div class="authorphoto"><img src="./hetero_graph/nick.jpg"></div>
+        <div>Nicholas Hynes</div>
+    </a>&#10022;
+  </div>
+
+  <div class="author">
+    <a href="https://www.linkedin.com/in/aritro-biswas-59054272/" target="_blank">
+      <div class="authorphoto"><img src="./hetero_graph/aritro.jpg"></div>
+        <div>Aritro Biswas</div>
+    </a>&#10022;
+  </div>
+
+  <div class="author">
+    <a href="http://people.csail.mit.edu/yusuf/" target="_blank">
+      <div class="authorphoto"><img src="./hetero_graph/yusuf.jpg"></div>
+        <div>Yusuf Aytar</div>
+    </a>&#10022;
+  </div>
+
+  <div class="author">
+    <a href="http://people.csail.mit.edu/jmarin/" target="_blank">
+      <div class="authorphoto"><img src="./hetero_graph/javi.jpg"></div>
+        <div>Javier Marin</div>
+    </a>&#10022;
+  </div>
+
+  <div class="author">
+    <a href="http://qcri.org.qa/page?name=Ferda_Ofli&amp;a=117&amp;pid=173&amp;lang=en-CA" target="_blank">
+      <div class="authorphoto"><img src="./hetero_graph/ferda.jpg"></div>
+        <div>Ferda Ofli</div>
+    </a>&#10021;
+  </div>
+  <div class="author">
+    <a href="http://qcri.org.qa/page?a=117&amp;pid=67" target="_blank">
+      <div class="authorphoto"><img src="./hetero_graph/ingmar.jpg"></div>
+        <div>Ingmar Weber</div>
+    </a>&#10021;
+  </div>
+
+  <div class="author">
+    <a href="http://web.mit.edu/torralba/www/" target="_blank">
+      <div class="authorphoto"><img src="./hetero_graph/antonio.jpg"></div>
+        <div>Antonio Torralba</div>
+    </a>&#10022;
+  </div>
+  <p id="authors">
+  <br>
+   &#9840; Universitat Politecnica de Catalunya<br>
+   &#10022; Massachusetts Institute of Technology<br>
+   &#10021; Qatar Computing Research Institute<br>
+   <br>
+  <!--<a href="http://cvpr2017.thecvf.com/">CVPR 2017<br></a>-->
+  <!--<small>* contributed equally</small>-->
+</p>
+</div>
+
+<div class="content">
+
+
+<!--<div style="float:right; width : 200px; text-align:center;">-->
+<!--<a href="im2recipe.pdf" target="_blank">-->
+<!--<br><img height="240px" src="./im2recipe_files/paper_cr.png"><br>-->
+<!--<strong>Download Paper</strong>-->
+<!--</a>-->
+<!--</div>-->
+
+<h2>Abstract</h2>
+
+<p style="text-align: justify;">
+In this paper, we introduce Recipe1M+, a new large-scale, structured corpus of over one million cooking recipes and 13million food images. As the largest publicly available collection of recipe data, Recipe1M+ affords the ability to train high-capacity modelson aligned, multimodal data. Using these data, we train a neural network to learn a joint embedding of recipes and images that yieldsimpressive results on an image-recipe retrieval task. Moreover, we demonstrate that regularization via the addition of a high-levelclassification objective both improves retrieval performance to rival that of humans and enables semantic vector arithmetic. We postulatethat these embeddings will provide a basis for further exploration of the Recipe1M+ dataset and food and cooking in general. Code, dataand models are publicly available.
+<!--In this paper, we introduce Recipe1M, a new large-scale, structured corpus of over one million cooking recipes and 13 million-->
+<!--food images. As the largest publicly available collection of recipe data, Recipe1M affords the ability to train high-capacity models on-->
+<!--aligned, multi-modal data. Using these data, we train a neural network to learn a joint embedding of recipes and images that yields-->
+<!--impressive results on an image-recipe retrieval task. Moreover, we demonstrate that regularization via the addition of a high-level-->
+<!--classification objective both improves retrieval performance to rival that of humans and enables semantic vector arithmetic. We postulate-->
+<!--that these embeddings will provide a basis for further exploration of the Recipe1M dataset and food and cooking in general. Code, data-->
+<!--and models are publicly available.-->
+
+</p>
+
+<br clear="both">
+
+<p>Check out our most recent journal <a href="http://im2recipe.csail.mit.edu/tpami19.pdf" target="_blank">paper</a> for full details and more analysis! Our CVPR paper can be downloaded from <a href="http://im2recipe.csail.mit.edu/im2recipe.pdf" target="_blank">here</a>.</p>
+
+</div>
+
+<div class="content" id="data">
+<h2>Recipe1M+ dataset</h2>
+
+<p>We present the large-scale Recipe1M+ dataset which contains one
+million structured cooking recipes with 13M associated images.</p>
+
+<p>Follow <a href="http://im2recipe.csail.mit.edu/dataset/download" target="_blank">this link</a> to download the dataset.</p>
+
+<p>Below are the dataset statistics:</p>
+
+<img width="240px" src="./hetero_graph/ninstrs2.png">
+<img width="240px" src="./hetero_graph/ningrs2.png">
+<img width="240px" src="./hetero_graph/nimages.png">
+<img width="240px" src="./hetero_graph/courses.png">
+
+</div>
+
+<div class="content" id="method">
+<h2>Joint embedding</h2>
+
+<p>We train a joint embedding composed of an encoder for each modality (ingredients, instructions and images).</p>
+
+<img src="./hetero_graph/im2recipe_fig.png" width="100%">
+
+</div>
+
+<div class="content">
+<h2>Results</h2>
+
+<h3>im2recipe retrieval</h3>
+
+<p>We evaluate all the recipe representations for im2recipe
+retrieval. Given a food image, the task is to retrieve its recipe
+from a collection of test recipes.</p>
+
+
+<div style="text-align:center;"><img src="./hetero_graph/results_vs_cca.png" width="800"></div>
+
+
+<h3>Comparison with humans</h3>
+
+<p>In order to better assess the quality of our embeddings we
+also evaluate the performance of humans on the im2recipe
+task.</p>
+
+<div style="text-align:center;"><img src="./hetero_graph/humans.png" width="800"></div>
+
+<!--<p>Check out our most recent journal <a href="/im2recipe-journal.pdf" target="_blank">paper</a> for full details and more analysis. Our CVPR paper can be downloaded from <a href="/im2recipe.pdf" target="_blank">here</a>.</p>-->
+
+<h3>Examples</h3>
+
+<p></p><div style="text-align:center;"><img src="./hetero_graph/im2recipe.png" width="800"></div><p></p>
+<p></p><div style="text-align:center;"><img src="./hetero_graph/recipe2im.png" width="800"></div><p></p>
+
+<!--<h3>Demo</h3>-->
+<!--<p><b>[Coming soon !]</b></p>-->
+<!--<p>Check out our online <a href="/demo">demo</a>, in which you can upload your food images to retrieve a recipe from our dataset. </p>-->
+
+</div>
+
+<div class="content">
+<h2>Demo</h2>
+<p><b>[Coming soon !]</b></p>
+<p>Check out our online <a href="http://im2recipe.csail.mit.edu/demo">demo</a>, in which you can upload your food images to retrieve a recipe from our dataset. </p>
+
+</div>
+
+<div class="content">
+<h2>Embedding Analysis</h2>
+
+<p>
+  We explore whether any semantic concepts emerge in the neuron
+activations and whether the embedding space has certain
+arithmetic properties.
+</p>
+
+<h3>Visualizing embedding units</h3>
+
+<p>We show the localized unit activations in both image and recipe embeddings. We find that
+certain units show localized semantic alignment between
+the embeddings of the two modalities.</p>
+
+
+<div style="text-align:center;"><img src="./hetero_graph/units.png" width="800"></div>
+
+
+<h3>Arithmetics</h3>
+
+<p>We demonstrate the capabilities of our learned embeddings with simple arithmetic
+  operations. In the context of food recipes, one would expect that:</p>
+
+<p>
+</p><div lang="latex" style="text-align:center;"> <img src="./hetero_graph/gif.latex" alt="
+  v(chicken\_pizza) - v(pizza) + v(lasagna) = v(chicken\_lasagna)
+" border="0" class="latex"> </div>
+<p></p>
+
+<p> where v represents the map into the embedding
+space.</p>
+
+
+<p>We investigate whether our learned embeddings have
+such properties by applying the previous equation template
+to the averaged vectors of recipes that contain the queried
+words in their title. The figures below show some results with same and cross-modality embedding arithmetics.</p>
+
+<p>
+<table border="1" frame="hsides" rules="cols">
+<tbody><tr><th>Image Embeddings</th>
+<th>Recipe Embeddings</th>
+</tr><tr>
+<td style="text-align:center;"><img src="./hetero_graph/comp_analogy_image+.jpg" width="480px"></td>
+<td><img src="./hetero_graph/comp_analogy_recipe+.jpg" width="480px"></td>
+</tr>
+<tr>
+</tr>
+</tbody></table>
+
+
+</p><h3>Fractional arithmetics</h3>
+<p>Another type of arithmetic we examine is fractional arithmetic, in which our model interpolates across the vector representations of two concepts in the embedding space. Specifically, we examine the results for: </p>
+
+<p> <img style="display: block;margin-left: auto;margin-right: auto;" src="./hetero_graph/gif(1).latex" border="0"> </p> 
+
+<p>where <img src="./hetero_graph/gif(2).latex"> varies from 0 to 1.</p> 
+
+<table border="1" frame="hsides" rules="cols">
+<tbody><tr><th>Image Embeddings</th>
+<th>Recipe Embeddings</th>
+</tr><tr>
+<td style="text-align:center;"><img src="./hetero_graph/comp_fractional_image.jpg" width="480px"></td>
+<td><img src="./hetero_graph/comp_fractional_recipe.jpg" width="480px"></td>
+</tr>
+<tr>
+
+</tr>
+</tbody></table>
+<p></p>
+</div>
+
+<div class="content">
+<h2>Embedding visualization</h2>
+<p> In order to visualize the learned embedding we make use of t-SNE and the 50k recipes with nutritional information we have within Recipe1M+.</p>
+
+<h3>Semantic categories</h3>
+<p>
+In the figure bellow we show those recipes that belong to the top 12 semantic categories used in our
+semantic regularization.
+</p>
+<p></p><div style="text-align:center;"><img src="./hetero_graph/t-sne.png" width="800"></div><p></p>
+
+<h3>Healthiness within the embedding</h3>
+<p>
+In the next figure we can see the previous embedding visualization but this time showing the same recipes on different
+colors depending on how healthy they are in terms of sugar, fat, saturates and salt.
+</p>
+<p></p><div style="text-align:center;"><img src="./hetero_graph/healthiness2.png" width="800"></div><p></p>
+
+
+</div>
+
+<div class="content">
+<h2>Code &amp; Trained Models</h2>
+<a href="https://github.com/torralba-lab/im2recipe" target="_blank"><img src="./hetero_graph/GitHub-Mark.png" style="float:right; width:100px; margin-right:15px; margin-top:-25px; margin-bottom : 10px;"></a>
+
+
+<ul>
+  <li><a href="https://github.com/torralba-lab/im2recipe" target="_blank">Code on GitHub</a></li>
+  <!--<li><a href="http://data.csail.mit.edu/im2recipe/pretrained/im2recipe_model.t7.gz" target="_blank">Pretrained Model</a></li>-->
+  <li><a href="http://wednesday.csail.mit.edu/pretrained/im2recipe_model.t7.gz" target="_blank">Pretrained Model</a></li>
+  <li><a href="https://github.com/torralba-lab/im2recipe-Pytorch" target="_blank">Code on GitHub (Pytorch)</a></li>
+  <li><a href="http://wednesday.csail.mit.edu/pretrained/model_e220_v-4.700.pth.tar" target="_blank">Pretrained Model (Pytorch)</a></li>
+</ul>
+
+
+</div>
+
+
+<div class="content">
+<h2>Citation</h2>
+<pre class="bibtex">@article{marin2019learning,
+  title = {Recipe1M+: A Dataset for Learning Cross-Modal Embeddings for Cooking Recipes and Food Images},
+  author = {Marin, Javier and Biswas, Aritro and Ofli, Ferda and Hynes, Nicholas and 
+  Salvador, Amaia and Aytar, Yusuf and Weber, Ingmar and Torralba, Antonio},
+  journal = {{IEEE} Trans. Pattern Anal. Mach. Intell.},
+  year = {2019}
+}
+
+@inproceedings{salvador2017learning,
+  title={Learning Cross-modal Embeddings for Cooking Recipes and Food Images},
+  author={Salvador, Amaia and Hynes, Nicholas and Aytar, Yusuf and Marin, Javier and 
+          Ofli, Ferda and Weber, Ingmar and Torralba, Antonio},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  year={2017}
+}
+</pre>
+</div>
+
+<div class="content">
+<h2>Acknowledgements</h2>
+
+<p>This work has been supported by CSAIL-QCRI collaboration projects and the framework of projects TEC2013-43935-R and TEC2016-75976-R, financed by the Spanish Ministerio de Economia y Competitividad and the European Regional Development Fund (ERDF).
+</p></div>
+
+
+
+
+</body></html>
